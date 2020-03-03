@@ -1,0 +1,12 @@
+
+Los sockets en Java o cualquier otro lenguaje de programación sirven para interconectar dos sistemas a través de la red,
+sólo utilizando un número ip o nombre de host y un puerto determinado. La arquitectura utilizada en los sockets es la de Cliente/Servidor.
+
+Con el uso de sockets en Java se pueden desarrollar muchos sistemas, como por ejemplos chats,
+videos juegos online y multijugador o incluso una simple página web.
+
+
+
+Información acerca de sockets.
+https://www.clubensayos.com/Temas-Variados/Los-Sockets-En-Java/143277.html
+
