@@ -68,11 +68,14 @@ public class SocketServer {
 
 
     }
-    public void groupMsn(String msn, User userSender){
+    public void CompruveMss(String msn, User userSender){
         for (User client : this.clients){
             client.getOutStream().println(userSender.getName()+
                     "<span>: "+ msn+"</span>");
         }
+    }
+    public void userX(User user){
+        this.clients.remove(user);
     }
 
     /**
@@ -87,7 +90,7 @@ public class SocketServer {
     public void privateMessages(String msn, User userSender, String user){
         boolean exist = false;
         for(User client: this.clients){
-            if(client.getName().equals(user)&&client!= userSender){
+            if(client.getName().equals(user) && client != userSender){
                 exist = true;
                 userSender.getOutStream().println((userSender.getName()+
                         " --> "+client.getName()+": "+msn));

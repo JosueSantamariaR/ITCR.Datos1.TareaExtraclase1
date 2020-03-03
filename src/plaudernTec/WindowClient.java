@@ -17,9 +17,9 @@ import java.util.Arrays;
 
 public class WindowClient extends Thread{
 
-    final JTextPane chatText = new JTextPane();
-    final JTextPane usersList = new JTextPane();
-    final JTextField fielNewMessage = new JTextField();
+    final JTextPane jtextFilDiscu = new JTextPane();
+    final JTextPane jtextListUsers = new JTextPane();
+    final JTextField jtextInputChat = new JTextField();
     private String oldMsg = "";
     private Thread read;
     private String serverName;
@@ -30,9 +30,9 @@ public class WindowClient extends Thread{
     Socket server;
 
     public WindowClient() {
-        this.serverName = "LocalHost";
+        this.serverName = "localhost";
         this.PORT = 12345;
-        this.name = "ID User";
+        this.name = "nickname";
 
         String fontfamily = "Arial, sans-serif";
         Font font = new Font(fontfamily, Font.PLAIN, 15);
@@ -44,33 +44,33 @@ public class WindowClient extends Thread{
         jfr.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         // Module du fil de discussion
-        chatText.setBounds(25, 25, 490, 320);
-        chatText.setFont(font);
-        chatText.setMargin(new Insets(6, 6, 6, 6));
-        chatText.setEditable(false);
-        JScrollPane jtextFilDiscuSP = new JScrollPane(chatText);
+        jtextFilDiscu.setBounds(25, 25, 490, 320);
+        jtextFilDiscu.setFont(font);
+        jtextFilDiscu.setMargin(new Insets(6, 6, 6, 6));
+        jtextFilDiscu.setEditable(false);
+        JScrollPane jtextFilDiscuSP = new JScrollPane(jtextFilDiscu);
         jtextFilDiscuSP.setBounds(25, 25, 290, 320);
 
-        chatText.setContentType("text/html");
-        chatText.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
+        jtextFilDiscu.setContentType("text/html");
+        jtextFilDiscu.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
 
         // Module de la liste des utilisateurs
-        usersList.setBounds(520, 25, 156, 320);
-        usersList.setEditable(true);
-        usersList.setFont(font);
-        usersList.setMargin(new Insets(6, 6, 6, 6));
-        usersList.setEditable(false);
-        JScrollPane jsplistuser = new JScrollPane(usersList);
+        jtextListUsers.setBounds(520, 25, 156, 320);
+        jtextListUsers.setEditable(true);
+        jtextListUsers.setFont(font);
+        jtextListUsers.setMargin(new Insets(6, 6, 6, 6));
+        jtextListUsers.setEditable(false);
+        JScrollPane jsplistuser = new JScrollPane(jtextListUsers);
         jsplistuser.setBounds(320, 25, 150, 320);
 
-        usersList.setContentType("text/html");
-        usersList.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
+        jtextListUsers.setContentType("text/html");
+        jtextListUsers.putClientProperty(JEditorPane.HONOR_DISPLAY_PROPERTIES, true);
 
         // Field message user input
-        fielNewMessage.setBounds(0, 350, 100, 50);
-        fielNewMessage.setFont(font);
-        fielNewMessage.setMargin(new Insets(6, 6, 6, 6));
-        final JScrollPane jtextInputChatSP = new JScrollPane(fielNewMessage);
+        jtextInputChat.setBounds(0, 350, 100, 50);
+        jtextInputChat.setFont(font);
+        jtextInputChat.setMargin(new Insets(6, 6, 6, 6));
+        final JScrollPane jtextInputChatSP = new JScrollPane(jtextInputChat);
         jtextInputChatSP.setBounds(25, 350, 290, 50);
 
         // button send
@@ -83,7 +83,7 @@ public class WindowClient extends Thread{
         jsbtndeco.setFont(font);
         jsbtndeco.setBounds(320, 10, 150, 15);
 
-        fielNewMessage.addKeyListener(new KeyAdapter() {
+        jtextInputChat.addKeyListener(new KeyAdapter() {
             // send message on Enter
             public void keyPressed(KeyEvent e) {
                 if (e.getKeyCode() == KeyEvent.VK_ENTER) {
@@ -92,14 +92,14 @@ public class WindowClient extends Thread{
 
                 // Get last message typed
                 if (e.getKeyCode() == KeyEvent.VK_UP) {
-                    String currentMessage = fielNewMessage.getText().trim();
-                    fielNewMessage.setText(oldMsg);
+                    String currentMessage = jtextInputChat.getText().trim();
+                    jtextInputChat.setText(oldMsg);
                     oldMsg = currentMessage;
                 }
 
                 if (e.getKeyCode() == KeyEvent.VK_DOWN) {
-                    String currentMessage = fielNewMessage.getText().trim();
-                    fielNewMessage.setText(oldMsg);
+                    String currentMessage = jtextInputChat.getText().trim();
+                    jtextInputChat.setText(oldMsg);
                     oldMsg = currentMessage;
                 }
             }
@@ -131,8 +131,8 @@ public class WindowClient extends Thread{
         jcbtn.setBounds(320, 380, 150, 40);
 
         // couleur par defaut des Modules fil de discussion et liste des utilisateurs
-        chatText.setBackground(Color.LIGHT_GRAY);
-        usersList.setBackground(Color.LIGHT_GRAY);
+        jtextFilDiscu.setBackground(Color.LIGHT_GRAY);
+        jtextListUsers.setBackground(Color.LIGHT_GRAY);
 
         // ajout des Ã©lÃ©ments
         jfr.add(jcbtn);
@@ -175,10 +175,10 @@ public class WindowClient extends Thread{
                     jfr.add(jsbtndeco);
                     jfr.revalidate();
                     jfr.repaint();
-                    chatText.setBackground(Color.WHITE);
-                    usersList.setBackground(Color.WHITE);
+                    jtextFilDiscu.setBackground(Color.WHITE);
+                    jtextListUsers.setBackground(Color.WHITE);
                 } catch (Exception ex) {
-                    appendToPane(chatText, "<span>Could not connect to Server</span>");
+                    appendToPane(jtextFilDiscu, "<span>Could not connect to Server</span>");
                     JOptionPane.showMessageDialog(jfr, ex.getMessage());
                 }
             }
@@ -198,10 +198,10 @@ public class WindowClient extends Thread{
                 jfr.revalidate();
                 jfr.repaint();
                 read.interrupt();
-                usersList.setText(null);
-                chatText.setBackground(Color.LIGHT_GRAY);
-                usersList.setBackground(Color.LIGHT_GRAY);
-                appendToPane(chatText, "<span>Connection closed.</span>");
+                jtextListUsers.setText(null);
+                jtextFilDiscu.setBackground(Color.LIGHT_GRAY);
+                jtextListUsers.setBackground(Color.LIGHT_GRAY);
+                appendToPane(jtextFilDiscu, "<span>Connection closed.</span>");
                 output.close();
             }
         });
@@ -250,14 +250,14 @@ public class WindowClient extends Thread{
     // envoi des messages
     public void sendMessage() {
         try {
-            String message = fielNewMessage.getText().trim();
+            String message = jtextInputChat.getText().trim();
             if (message.equals("")) {
                 return;
             }
             this.oldMsg = message;
             output.println(message);
-            fielNewMessage.requestFocus();
-            fielNewMessage.setText(null);
+            jtextInputChat.requestFocus();
+            jtextInputChat.setText(null);
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(null, ex.getMessage());
             System.exit(0);
@@ -281,12 +281,12 @@ public class WindowClient extends Thread{
                             ArrayList<String> ListUser = new ArrayList<String>(
                                     Arrays.asList(message.split(", "))
                             );
-                            usersList.setText(null);
+                            jtextListUsers.setText(null);
                             for (String user : ListUser) {
-                                appendToPane(usersList, "@" + user);
+                                appendToPane(jtextListUsers, "@" + user);
                             }
                         }else{
-                            appendToPane(chatText, message);
+                            appendToPane(jtextFilDiscu, message);
                         }
                     }
                 }

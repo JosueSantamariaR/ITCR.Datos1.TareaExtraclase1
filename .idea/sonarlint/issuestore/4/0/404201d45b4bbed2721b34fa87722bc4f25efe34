@@ -1,0 +1,17 @@
+
+}squid:S2293™"YReplace the type specification in this constructor call with the diamond operator ("<>").(τÿΐΥώÿÿÿÿ8Α£επ‰.
+Ysquid:S1161‘":Add the "@Override" annotation above this method signature(“–ύώ8Α£επ‰.
+ª%squid:RedundantThrowsDeclarationCheck‹"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ΩΨ¤ήύÿÿÿÿ8οβηπ‰.
+Wsquid:S1161X":Add the "@Override" annotation above this method signature(έΌυA8Α£επ‰.
+Gsquid:S1148΄"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ8Α£επ‰.
+^squid:S2134"@Don't extend "Thread", since the "run" method is not overridden.(¥τΘ•8Α£επ‰.
+Esquid:S1604m"(Make this anonymous inner class a lambda(Ρ”νS8Α£επ‰.
+fsquid:S1126ξ"BReplace this if-then-else statement by a single method invocation.(μό©‡ώÿÿÿÿ8Α£επ‰.
+Lsquid:S1604"(Make this anonymous inner class a lambda(άί³ÿÿÿÿÿ8Α£επ‰.
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹Έ—
+fsquid:S3252,"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(θΔ%8Α£επ‰.
+vsquid:S00117™"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(τÿΐΥώÿÿÿÿ8Α£επ‰.
+ squid:S1186α"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(έε8Α£επ‰.
+fsquid:S1126δ"BReplace this if-then-else statement by a single method invocation.(μό©‡ώÿÿÿÿ8Α£επ‰.
+Gsquid:S1604½"(Make this anonymous inner class a lambda(“†©8Α£επ‰.
+Jsquid:S1481"+Remove this unused "client" local variable.(Ά²ΰ·8Α£επ‰.

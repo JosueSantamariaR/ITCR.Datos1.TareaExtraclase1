@@ -1,0 +1,4 @@
+
+lsquid:UselessImportCheck"ARemove this unused import 'com.sun.deploy.appcontext.AppContext'.(ÄÊ‚Ä8Ìµ€ð‰.
+Ssquid:S1191"5Use classes from the Java API instead of Sun classes.(ÄÊ‚Ä8ÏŒ€ð‰.
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ž‹¸—

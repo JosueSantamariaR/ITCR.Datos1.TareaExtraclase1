@@ -1,13 +1,13 @@
 package plaudernTec;
 
-import com.sun.deploy.appcontext.AppContext;
+
 
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 
-class User {
+public class User {
     /**
      * Define user parameters
      * Using encapsulating
@@ -30,9 +30,7 @@ class User {
      * Remove a user from clients list
      * @param user
      */
-    public void userX(User user){
-        SocketServer.clients.remove(user);
-    }
+
 
 
 
@@ -41,15 +39,15 @@ class User {
      * @return
      */
     public InputStream getInputStream() {
-        return inputStream;
+        return this.inputStream;
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public PrintStream getOutStream() {
-        return outputStream;
+        return this.outputStream;
     }
 
     /**

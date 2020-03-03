@@ -2,25 +2,27 @@ package plaudernTec;
 
 import java.util.Scanner;
 
-class UserConnection implements Runnable{
+public class UserConnection implements Runnable{
     private SocketServer server;
     private User user;
 
     public UserConnection(SocketServer server, User user) {
         this.server = server;
         this.user = user;
+        this.server.showUsersList();
+
 
     }
     public void run() {
         String messageN;
 
-        Scanner scanner = new Scanner(this.user.getInputStream());
-        while (scanner.hasNextLine()) {
-            messageN = scanner.nextLine();
+        Scanner entrance = new Scanner(this.user.getInputStream());
+        while (entrance.hasNextLine()) {
+            messageN = entrance.nextLine();
 
             if (messageN.charAt(0) == '@') {
                 if (messageN.contains(" ")) {
-                    System.out.println("private msg : " + messageN);
+                    System.out.println("private msn : " + messageN);
                     int firstSpace = messageN.indexOf(" ");
                     String userPrivate = messageN.substring(1, firstSpace);
                     server.privateMessages(
@@ -30,12 +32,12 @@ class UserConnection implements Runnable{
                     );
                 }
             } else {
-                server.groupMsn(messageN, user);
+                server.CompruveMss(messageN, user);
             }
         }
-        user.userX(user);
+        server.userX(user);
         this.server.showUsersList();
-        scanner.close();
+        entrance.close();
     }
 
 }

@@ -18,7 +18,7 @@ class SocketClient {
 
 
     public static void main(String[] args) throws UnknownHostException, IOException {
-        new SocketClient("127.0.0.1", 40001).run();
+        new SocketClient("127.0.0.1", 12345).run();
     }
 
     public  SocketClient(String idServer, int port){
@@ -38,9 +38,9 @@ class SocketClient {
         /**
          * Peticion the user identifier
          */
-        Scanner scann = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         System.out.println("Write the IDUser: ");
-        String idUser = scann.nextLine();
+        String idUser = scanner.nextLine();
         /**
          * Sending the user identifier to server
          */
@@ -54,15 +54,15 @@ class SocketClient {
         /**
          * Loop to see if there are new messages
          */
-        while(scann.hasNextLine()){
-            output.println(scann.nextLine());
+        while(scanner.hasNextLine()){
+            output.println(scanner.nextLine());
         }
 
         /**
          * Closing the system
          */
         output.close();
-        scann.close();
+        scanner.close();
         client.close();
     }
 

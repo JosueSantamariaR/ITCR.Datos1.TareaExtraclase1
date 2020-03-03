@@ -15,13 +15,13 @@ public class Messages implements Runnable{
 
 
     public void run() {
-        Scanner scanner = new Scanner(server);
+        Scanner entr = new Scanner(server);
         String temporal = "";
-        while(scanner.hasNextLine()){
-            temporal= scanner.nextLine();
+        while(entr.hasNextLine()){
+            temporal= entr.nextLine();
             if(temporal.charAt(0) == '['){
                 temporal= temporal.substring(1,temporal.length()-1);
-                System.out.println("\nUsers List"+
+                System.out.println("\nUsers List "+
                 new ArrayList<String>(Arrays.asList(temporal.split(","))) + "\n");
             }else{
                 try{
@@ -30,7 +30,7 @@ public class Messages implements Runnable{
             }
 
         }
-        scanner.close();
+        entr.close();
     }
     public static String getTagValue(String xml){
         return  xml.split(">")[2].split("<")[0] + xml.split("<span>")[1].split("</span>")[0];

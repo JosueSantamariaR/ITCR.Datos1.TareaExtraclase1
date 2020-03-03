@@ -1,10 +1,13 @@
 
-b"squid:ObjectFinalizeOverridenCheck"-Do not override the Object.finalize() method.(ÏæÉå8´ş³è‰.
+Ssquid:S2209Y"5Change this instance-reference to a static reference.(³ò÷8±›Ìğ‰.
+Ssquid:S2209H"5Change this instance-reference to a static reference.(³ò÷8¥ı±ğ‰.
+b"squid:ObjectFinalizeOverridenCheck"-Do not override the Object.finalize() method.(ÏæÉå8´ş³è‰.
 rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¸—
-Isquid:S1068"+Remove this unused "clients" private field.(çú®û8Ÿ¨è‰.
-Hsquid:S1481'"+Remove this unused "client" local variable.(Òğş|8öô½è‰.
-xsquid:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(­«ÚÒùÿÿÿÿ8´ş³è‰.
-ysquid:CallToDeprecatedMethod"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ÏæÉå8´ş³è‰.
-|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬Äƒ¾ûÿÿÿÿ8£×®è‰.
-squid:S4165"kRemove this useless assignment; "portConection" already holds the assigned value along all execution paths.(À±š¦úÿÿÿÿ8’è¯è‰.
-Nsquid:S1172"+Remove this unused method parameter "port".(ê†Œÿÿÿÿÿ8’è¯è‰.
+Gsquid:S3010"$Remove this assignment of "clients".(¬Äƒ¾ûÿÿÿÿ8ÀÛ„ğ‰.
+Ssquid:S2209R"5Change this instance-reference to a static reference.(³ò÷8·²½ğ‰.
+|squid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(¬Äƒ¾ûÿÿÿÿ8ˆá¯ï‰.
+ysquid:CallToDeprecatedMethod"JDon't override a deprecated method or explicitly mark it as "@Deprecated".(ÏæÉå8´ş³è‰.
+Ssquid:S22099"5Change this instance-reference to a static reference.(Õæ°±8ÀÛ„ğ‰.
+Xsquid:S2209"5Change this instance-reference to a static reference.(¬Äƒ¾ûÿÿÿÿ8ÀÛ„ğ‰.
+xsquid:S1450"URemove the "server" field and declare it as a local variable in the relevant methods.(­«ÚÒùÿÿÿÿ8´ş³è‰.
+Xsquid:S2209S"5Change this instance-reference to a static reference.(ò×òéıÿÿÿÿ8·²½ğ‰.
