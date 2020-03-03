@@ -42,14 +42,30 @@ public class SocketClient {
         Scanner scann = new Scanner(System.in);
         System.out.println("Write the IDUser: ");
         String idUser = scann.nextLine();
-
+        /**
+         * Sending the user identifier to server
+         */
         output.println(idUser);
 
+        /**
+         * Creation a new Thread for the messages in the server
+         */
         new Thread(new Messages(client.getInputStream())).start();
 
+        /**
+         * Loop to see if there are new messages
+         */
+        while(scann.hasNextLine()){
+            output.println(scann.nextLine());
+        }
+
+        /**
+         * Closing the system
+         */
+        output.close();
+        scann.close();
+        client.close();
     }
-
-
 
 
 }
