@@ -22,7 +22,7 @@ public class SocketServer {
 
     public SocketServer(int port) {
         this.portConnection = portConnection;
-        this.clients = new List<User>();
+        //this.clients = new List<User>();
     }
 
     public void run() throws IOException {

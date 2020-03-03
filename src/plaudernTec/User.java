@@ -35,7 +35,7 @@ class User {
         return name;
     }
 
-    public PrintStream getOutputStream() {
+    public PrintStream getOutStream() {
         return outputStream;
     }
 

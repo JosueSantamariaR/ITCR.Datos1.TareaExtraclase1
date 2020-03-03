@@ -14,7 +14,7 @@ class UserConnection implements Runnable{
     public void run(){
         String messageN;
 
-        Scanner sc new Scanner(this.user.getInputStream());
+        Scanner sc = new Scanner(this.user.getInputStream());
     }
 
 }
