@@ -1,9 +1,12 @@
 package plaudernTec;
 
+import com.sun.deploy.appcontext.AppContext;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
+
 
 class User {
     /**
@@ -16,12 +19,23 @@ class User {
     private String name; //ID user
     private PrintStream outputStream;
 
+
     public User(Socket client, String name) throws IOException {
         this.outputStream = new PrintStream(client.getOutputStream());
         this.inputStream = client.getInputStream();
         this.name = name;
 
     }
+
+    /**
+     * Remove a user from clients list
+     * @param user
+     */
+    public void userX(User user){
+        SocketServer.clients.remove(user);
+    }
+
+
 
     /**
      * Getters methods
@@ -45,4 +59,5 @@ class User {
     public String toString(){
         return this.name;
     }
+
 }

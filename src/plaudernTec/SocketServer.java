@@ -13,16 +13,16 @@ public class SocketServer {
      * Variables using encapsulating
      */
     private int portConnection;
-    private List<User> clients;
+    static List<User> clients;
     private ServerSocket server;
 
     public static void main(String[] args) throws IOException {
-        new SocketServer(12345).run();
+        new SocketServer(40001).run();
     }
 
     public SocketServer(int port) {
         this.portConnection = portConnection;
-        //this.clients = new List<User>();
+        this.clients = new ArrayList<User>();
     }
 
     public void run() throws IOException {
@@ -49,13 +49,57 @@ public class SocketServer {
             client.getInetAddress().getHostAddress());
 
             /**
-             * Creation of new user
+             * Creation of new client
              * call User() class
              */
+            User newClient = new User(client, idUser);
+
+            this.clients.add(newClient);
+
+            newClient.getOutStream().println(newClient.getName());
+            /**
+             * Creation a new Thread for the messages
+             */
+            new Thread(new UserConnection(this, newClient)).start();
+
 
         }
 
+
+
+    }
+    public void groupMsn(String msn, User userSender){
+        for (User client : this.clients){
+            client.getOutStream().println(userSender.getName()+
+                    "<span>: "+ msn+"</span>");
+        }
     }
 
+    /**
+     * Show the user list to each user
+     */
+    public void showUsersList(){
+    for (User client : this.clients) {
+        client.getOutStream().println(this.clients);
+    }
+}
+
+    public void privateMessages(String msn, User userSender, String user){
+        boolean exist = false;
+        for(User client: this.clients){
+            if(client.getName().equals(user)&&client!= userSender){
+                exist = true;
+                userSender.getOutStream().println((userSender.getName()+
+                        " --> "+client.getName()+": "+msn));
+                client.getOutStream().println(
+                        "(<b>Mensaje Privado</b>)"+userSender.getName()+
+                                "<span>: "+msn+"</span>");
+            }
+        }
+        if(!exist){
+            userSender.getOutStream().println(userSender.getName()+
+                    " --> (<b>no one!</b>): "+msn);
+        }
+    }
 
 }
