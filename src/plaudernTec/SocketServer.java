@@ -12,26 +12,26 @@ public class SocketServer {
     /**
      * Variables using encapsulating
      */
-    private int portConnection;
+    private int port;
     static List<User> clients;
     private ServerSocket server;
 
     public static void main(String[] args) throws IOException {
-        new SocketServer(40001).run();
+        new SocketServer(12345).run();
     }
 
     public SocketServer(int port) {
-        this.portConnection = portConnection;
+        this.port = port;
         this.clients = new ArrayList<User>();
     }
 
     public void run() throws IOException {
-        server = new ServerSocket(portConnection) {
+        server = new ServerSocket(port) {
             protected void finalize() throws IOException {
                 this.close();
             }
         };
-        System.out.println("Port"+ portConnection +"is running");
+        System.out.println("Port"+port+"is running");
 
         while (true){
             /**

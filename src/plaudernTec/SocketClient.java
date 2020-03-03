@@ -5,16 +5,15 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Scanner;
-import java.io.InputStream;
-import plaudernTec.User;
 
 
-public class SocketClient {
+
+class SocketClient {
     /**
      * Variables using encapsulating
      */
     private String idServer;
-    private int portConnection;
+    private int port;
 
 
 
@@ -22,9 +21,9 @@ public class SocketClient {
         new SocketClient("127.0.0.1", 40001).run();
     }
 
-    public  SocketClient(String idServer, int portConnection){
+    public  SocketClient(String idServer, int port){
         this.idServer = idServer;
-         this.portConnection = portConnection;
+         this.port = port;
 
     }
 
@@ -32,7 +31,7 @@ public class SocketClient {
         /**
          * Connection the client with the server
          */
-        Socket client = new Socket(idServer,portConnection);
+        Socket client = new Socket(idServer, port);
         System.out.println("Client connected");
 
         PrintStream output = new PrintStream(client.getOutputStream());

@@ -13,7 +13,7 @@ public class Messages implements Runnable{
 
     }
 
-    @Override
+
     public void run() {
         Scanner scanner = new Scanner(server);
         String temporal = "";

@@ -7,7 +7,6 @@ import java.io.InputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 
-
 class User {
     /**
      * Define user parameters
