@@ -21,7 +21,7 @@ class SocketClient {
     }
 
     public static void main(String[] args) throws IOException {
-        new SocketClient("127.0.0.1", 12345).run();
+        new SocketClient("127.0.0.1", 40001).run();
     }
 
     public void run() throws IOException {

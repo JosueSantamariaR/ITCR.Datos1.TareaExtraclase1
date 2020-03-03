@@ -1,16 +1,14 @@
 
-osquid:UselessImportCheck"?Remove this unused import 'javax.swing.event.DocumentListener'.(‹ëÊ•ÿÿÿÿÿ8÷Ö÷‰.
-}squid:S2293 "YReplace the type specification in this constructor call with the diamond operator ("<>").(ôÿÀÕşÿÿÿÿ8Êßß÷‰.
-Jsquid:S1481‘"+Remove this unused "client" local variable.(¢²à·8·§óô‰.
-Wsquid:S1161l":Add the "@Override" annotation above this method signature(İ¼õA8·§óô‰.
-Gsquid:S1604¹"(Make this anonymous inner class a lambda(Ë¥Œè8·§óô‰.
-gsquid:S3252."IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ÒÛ´ç8·§óô‰.
+Gsquid:S1604»"(Make this anonymous inner class a lambda(Ë¥Œè8·§óô‰.
+Lsquid:S1604â"(Make this anonymous inner class a lambda(õ¬ìµùÿÿÿÿ8·§óô‰.
+Gsquid:S1148£"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Á£åğ‰.
+gsquid:S32520"IUse static access with "javax.swing.WindowConstants" for "EXIT_ON_CLOSE".(ÒÛ´ç8·§óô‰.
 rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(‹¸—
-Lsquid:S1604à"(Make this anonymous inner class a lambda(õ¬ìµùÿÿÿÿ8·§óô‰.
-vsquid:S00117 "QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÿÀÕşÿÿÿÿ8Êßß÷‰.
-^squid:S2134"@Don't extend "Thread", since the "run" method is not overridden.(¥ôÈ•8·§óô‰.
-lsquid:UselessImportCheck"<Remove this unused import 'javax.swing.event.DocumentEvent'.(Î‚øòüÿÿÿÿ8÷Ö÷‰.
-Gsquid:S1148À"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Á£åğ‰.
-Fsquid:S1604…"(Make this anonymous inner class a lambda(ë²£j8·§óô‰.
-ª%squid:RedundantThrowsDeclarationCheck"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Şıÿÿÿÿ8­÷ôô‰.
-Ysquid:S1161˜":Add the "@Override" annotation above this method signature(“–ış8Êßß÷‰.
+Ysquid:S1161«":Add the "@Override" annotation above this method signature(“–ış8Êßß÷‰.
+Jsquid:S1481ÿ"+Remove this unused "client" local variable.(¢²à·8·§óô‰.
+vsquid:S00117³"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôÿÀÕşÿÿÿÿ8Êßß÷‰.
+^squid:S2134"@Don't extend "Thread", since the "run" method is not overridden.(¥ôÈ•8·§óô‰.
+Fsquid:S1604‡"(Make this anonymous inner class a lambda(ë²£j8·§óô‰.
+Wsquid:S1161n":Add the "@Override" annotation above this method signature(İ¼õA8·§óô‰.
+ª%squid:RedundantThrowsDeclarationCheckş"lRemove the declaration of thrown exception 'java.lang.Exception', as it cannot be thrown from method's body.(ÙØ¤Şıÿÿÿÿ8­÷ôô‰.
+}squid:S2293³"YReplace the type specification in this constructor call with the diamond operator ("<>").(ôÿÀÕşÿÿÿÿ8Êßß÷‰.

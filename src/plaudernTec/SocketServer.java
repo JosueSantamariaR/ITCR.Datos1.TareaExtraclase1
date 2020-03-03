@@ -22,7 +22,7 @@ public class SocketServer {
     }
 
     public static void main(String[] args) throws IOException {
-        new SocketServer(12345).run();
+        new SocketServer(40001).run();
     }
 
     public void run() throws IOException {

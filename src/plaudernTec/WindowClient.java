@@ -33,7 +33,7 @@ public class WindowClient extends Thread {
 
     public WindowClient() {
         this.serverName = "LocalHost";
-        this.portConnection = 12345;
+        this.portConnection = 40001;
         this.idUser = "ID_User";
         /**
          * Type of the font in the window

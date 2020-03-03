@@ -1,0 +1,5 @@
+
+`squid:S1126"BReplace this if-then-else statement by a single method invocation.(üšÔÅ8á¢Ö÷‰.
+¤squid:S1186"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(Ø¡ý¥ûÿÿÿÿ8á¢Ö÷‰.
+rsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(Ž‹¸—
+`squid:S1126'"BReplace this if-then-else statement by a single method invocation.(üšÔÅ8á¢Ö÷‰.

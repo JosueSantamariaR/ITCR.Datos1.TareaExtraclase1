@@ -13,3 +13,5 @@ Q
 !src/plaudernTec/WindowClient.java,4\0\404201d45b4bbed2721b34fa87722bc4f25efe34
 O
 src/plaudernTec/TextViewer.java,e\5\e50be35281a438bf8f1c8d874c73a90520eef599
+S
+#.idea/sonarlint/issuestore/index.pb,9\f\9fe84ebb15faf917b7def6236dba604453cc61e0
