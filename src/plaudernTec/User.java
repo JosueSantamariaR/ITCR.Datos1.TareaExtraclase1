@@ -1,7 +1,6 @@
 package plaudernTec;
 
 
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.PrintStream;
@@ -32,10 +31,9 @@ public class User {
      */
 
 
-
-
     /**
      * Getters methods
+     *
      * @return
      */
     public InputStream getInputStream() {
@@ -53,7 +51,7 @@ public class User {
     /**
      * This method is for the print users in the UserList
      */
-    public String toString(){
+    public String toString() {
         return this.name;
     }
 

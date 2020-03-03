@@ -1,22 +1,27 @@
 package plaudernTec;
 
+import javax.swing.*;
+import javax.swing.text.html.HTMLDocument;
+import javax.swing.text.html.HTMLEditorKit;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.net.*;
-import java.io.*;
-import javax.swing.*;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.text.html.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 
-public class WindowClient extends Thread{
+public class WindowClient extends Thread {
 
+    final JTextPane chaText = new JTextPane();
+    final JTextField inpuText = new JTextField();
+    final JTextPane usersList = new JTextPane();
     BufferedReader input;
     PrintWriter output;
     Socket server;
@@ -25,9 +30,6 @@ public class WindowClient extends Thread{
     private String serverName;
     private String idUser;
     private Thread read;
-    final JTextPane chaText = new JTextPane();
-    final JTextField inpuText = new JTextField();
-    final JTextPane usersList = new JTextPane();
 
     public WindowClient() {
         this.serverName = "LocalHost";
@@ -221,7 +223,7 @@ public class WindowClient extends Thread{
         /**
          * Desconect press button
          */
-        jbDesconect.addActionListener(new ActionListener()  {
+        jbDesconect.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent ae) {
                 jFrame.add(jtfName);
                 jFrame.add(jtfport);
@@ -243,7 +245,15 @@ public class WindowClient extends Thread{
 
     }
 
-
+    /**
+     * Call of the window
+     *
+     * @param args
+     * @throws Exception
+     */
+    public static void main(String[] args) throws Exception {
+        WindowClient client = new WindowClient();
+    }
 
     /**
      * Send messages
@@ -265,12 +275,21 @@ public class WindowClient extends Thread{
     }
 
     /**
-     * Call of the window
-     * @param args
-     * @throws Exception
+     * Apennd text in the pane of the window
+     * Convert to html format
+     *
+     * @param tp
+     * @param msg
      */
-    public static void main(String[] args) throws Exception {
-        WindowClient client = new WindowClient();
+    private void addToTextArea(JTextPane tp, String msg) {
+        HTMLDocument doc = (HTMLDocument) tp.getDocument();
+        HTMLEditorKit editorKit = (HTMLEditorKit) tp.getEditorKit();
+        try {
+            editorKit.insertHTML(doc, doc.getLength(), msg, 0, 0, null);
+            tp.setCaretPosition(doc.getLength());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -279,12 +298,12 @@ public class WindowClient extends Thread{
     class Read extends Thread {
         public void run() {
             String message;
-            while(!Thread.currentThread().isInterrupted()){
+            while (!Thread.currentThread().isInterrupted()) {
                 try {
                     message = input.readLine();
-                    if(message != null){
+                    if (message != null) {
                         if (message.charAt(0) == '[') {
-                            message = message.substring(1, message.length()-1);
+                            message = message.substring(1, message.length() - 1);
                             ArrayList<String> ListUser = new ArrayList<String>(
                                     Arrays.asList(message.split(", "))
                             );
@@ -292,32 +311,14 @@ public class WindowClient extends Thread{
                             for (String user : ListUser) {
                                 addToTextArea(usersList, "@" + user);
                             }
-                        }else{
+                        } else {
                             addToTextArea(chaText, message);
                         }
                     }
-                }
-                catch (IOException ex) {
+                } catch (IOException ex) {
                     System.err.println("Error, with the incoming message");
                 }
             }
-        }
-    }
-
-    /**
-     * Apennd text in the pane of the window
-     * Convert to html format
-     * @param tp
-     * @param msg
-     */
-    private void addToTextArea(JTextPane tp, String msg){
-        HTMLDocument doc = (HTMLDocument)tp.getDocument();
-        HTMLEditorKit editorKit = (HTMLEditorKit)tp.getEditorKit();
-        try {
-            editorKit.insertHTML(doc, doc.getLength(), msg, 0, 0, null);
-            tp.setCaretPosition(doc.getLength());
-        } catch(Exception e){
-            e.printStackTrace();
         }
     }
 }

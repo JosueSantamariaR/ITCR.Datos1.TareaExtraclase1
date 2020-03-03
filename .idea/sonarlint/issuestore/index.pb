@@ -11,3 +11,5 @@ M
 src/plaudernTec/Messages.java,9\d\9d37bcb53c5cbe7ef57e88b4242b04623ffbe01c
 Q
 !src/plaudernTec/WindowClient.java,4\0\404201d45b4bbed2721b34fa87722bc4f25efe34
+O
+src/plaudernTec/TextViewer.java,e\5\e50be35281a438bf8f1c8d874c73a90520eef599

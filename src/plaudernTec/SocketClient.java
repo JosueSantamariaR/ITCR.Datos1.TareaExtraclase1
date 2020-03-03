@@ -3,9 +3,7 @@ package plaudernTec;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.util.Scanner;
-
 
 
 class SocketClient {
@@ -16,18 +14,17 @@ class SocketClient {
     private int port;
 
 
+    public SocketClient(String idServer, int port) {
+        this.idServer = idServer;
+        this.port = port;
 
-    public static void main(String[] args) throws UnknownHostException, IOException {
+    }
+
+    public static void main(String[] args) throws IOException {
         new SocketClient("127.0.0.1", 12345).run();
     }
 
-    public  SocketClient(String idServer, int port){
-        this.idServer = idServer;
-         this.port = port;
-
-    }
-
-    public void run() throws UnknownHostException, IOException{
+    public void run() throws IOException {
         /**
          * Connection the client with the server
          */
@@ -54,7 +51,7 @@ class SocketClient {
         /**
          * Loop to see if there are new messages
          */
-        while(scanner.hasNextLine()){
+        while (scanner.hasNextLine()) {
             output.println(scanner.nextLine());
         }
 

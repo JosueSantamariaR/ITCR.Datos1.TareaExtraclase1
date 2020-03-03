@@ -2,7 +2,7 @@ package plaudernTec;
 
 import java.util.Scanner;
 
-public class UserConnection implements Runnable{
+public class UserConnection implements Runnable {
     private SocketServer server;
     private User user;
 
@@ -13,6 +13,7 @@ public class UserConnection implements Runnable{
 
 
     }
+
     public void run() {
         String messageN;
 
@@ -27,7 +28,7 @@ public class UserConnection implements Runnable{
                     String userPrivate = messageN.substring(1, firstSpace);
                     server.privateMessages(
                             messageN.substring(
-                                    firstSpace + 1, messageN.length()
+                                    firstSpace + 1
                             ), user, userPrivate
                     );
                 }

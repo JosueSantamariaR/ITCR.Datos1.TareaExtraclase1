@@ -9,31 +9,32 @@ import java.util.Scanner;
 
 public class SocketServer {
 
+    static List<User> clients;
     /**
      * Variables using encapsulating
      */
     private int port;
-    static List<User> clients;
     private ServerSocket server;
+
+    public SocketServer(int port) {
+        this.port = port;
+        clients = new ArrayList<User>();
+    }
 
     public static void main(String[] args) throws IOException {
         new SocketServer(12345).run();
     }
 
-    public SocketServer(int port) {
-        this.port = port;
-        this.clients = new ArrayList<User>();
-    }
-
     public void run() throws IOException {
         server = new ServerSocket(port) {
+            @Override
             protected void finalize() throws IOException {
                 this.close();
             }
         };
-        System.out.println("Port"+port+"is running");
+        System.out.println("Port " + port + " is running");
 
-        while (true){
+        while (true) {
             /**
              * Accept new clients
              */
@@ -42,11 +43,11 @@ public class SocketServer {
             /**
              * Get a ID user identifier
              */
-            String idUser =(new Scanner(client.getInputStream() )).nextLine();
-            idUser = idUser.replace(",","");
+            String idUser = (new Scanner(client.getInputStream())).nextLine();
+            idUser = idUser.replace(",", "");
             idUser = idUser.replace(" ", "_");
-            System.out.println("New Client: \"" + idUser + "\"\n\t Host:"+
-            client.getInetAddress().getHostAddress());
+            System.out.println("New Client: \"" + idUser + "\"\n\t Host:" +
+                    client.getInetAddress().getHostAddress());
 
             /**
              * Creation of new client
@@ -54,7 +55,7 @@ public class SocketServer {
              */
             User newClient = new User(client, idUser);
 
-            this.clients.add(newClient);
+            clients.add(newClient);
 
             newClient.getOutStream().println(newClient.getName());
             /**
@@ -66,42 +67,43 @@ public class SocketServer {
         }
 
 
-
     }
-    public void CompruveMss(String msn, User userSender){
-        for (User client : this.clients){
-            client.getOutStream().println(userSender.getName()+
-                    "<span>: "+ msn+"</span>");
+
+    public void CompruveMss(String msn, User userSender) {
+        for (User client : clients) {
+            client.getOutStream().println(userSender.getName() +
+                    "<span>: " + msn + "</span>");
         }
     }
-    public void userX(User user){
-        this.clients.remove(user);
+
+    public void userX(User user) {
+        clients.remove(user);
     }
 
     /**
      * Show the user list to each user
      */
-    public void showUsersList(){
-    for (User client : this.clients) {
-        client.getOutStream().println(this.clients);
+    public void showUsersList() {
+        for (User client : clients) {
+            client.getOutStream().println(clients);
+        }
     }
-}
 
-    public void privateMessages(String msn, User userSender, String user){
+    public void privateMessages(String msn, User userSender, String user) {
         boolean exist = false;
-        for(User client: this.clients){
-            if(client.getName().equals(user) && client != userSender){
+        for (User client : clients) {
+            if (client.getName().equals(user) && client != userSender) {
                 exist = true;
-                userSender.getOutStream().println((userSender.getName()+
-                        " --> "+client.getName()+": "+msn));
+                userSender.getOutStream().println((userSender.getName() +
+                        " --> " + client.getName() + ": " + msn));
                 client.getOutStream().println(
-                        "(<b>Mensaje Privado</b>)"+userSender.getName()+
-                                "<span>: "+msn+"</span>");
+                        "(<b>Mensaje Privado</b>)" + userSender.getName() +
+                                "<span>: " + msn + "</span>");
             }
         }
-        if(!exist){
-            userSender.getOutStream().println(userSender.getName()+
-                    " --> (<b>no one!</b>): "+msn);
+        if (!exist) {
+            userSender.getOutStream().println(userSender.getName() +
+                    " --> (<b>no one!</b>): " + msn);
         }
     }
 
